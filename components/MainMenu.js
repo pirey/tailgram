@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 const assets = {
   burger: (
@@ -126,10 +126,15 @@ function MenuIcon({ children }) {
 }
 
 function MainMenu() {
+  const ref = useRef()
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
+  useOnClickOutside(
+    ref,
+    useCallback(() => setOpen(false))
+  )
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <MenuToggle onClick={toggle} />
       <Menu open={open}>
         <MenuItem>
@@ -154,6 +159,33 @@ function MainMenu() {
         </MenuItem>
       </Menu>
     </div>
+  )
+}
+
+function useOnClickOutside(ref, handler) {
+  useEffect(
+    () => {
+      const listener = (event) => {
+        // Do nothing if clicking ref's element or descendent elements
+        if (!ref.current || ref.current.contains(event.target)) {
+          return
+        }
+        handler(event)
+      }
+      document.addEventListener("mousedown", listener)
+      document.addEventListener("touchstart", listener)
+      return () => {
+        document.removeEventListener("mousedown", listener)
+        document.removeEventListener("touchstart", listener)
+      }
+    },
+    // Add ref and handler to effect dependencies
+    // It's worth noting that because passed in handler is a new ...
+    // ... function on every render that will cause this effect ...
+    // ... callback/cleanup to run every render. It's not a big deal ...
+    // ... but to optimize you can wrap handler in useCallback before ...
+    // ... passing it into this hook.
+    [ref, handler]
   )
 }
 

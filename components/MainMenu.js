@@ -100,7 +100,7 @@ function MenuToggle({ onClick }) {
 function Menu({ children, open }) {
   return (
     <div
-      className={`absolute left-0 right-0 z-10 py-2 origin-top transform transition-transform bg-white top-full ${
+      className={`absolute left-0 right-0 z-10 py-2 origin-top transform transition-transform bg-white top-full border shadow-lg border-blue-primary border-opacity-40 ${
         open ? "scale-y-100" : "scale-y-0"
       }`}
     >
@@ -111,14 +111,14 @@ function Menu({ children, open }) {
 
 function MenuItem({ children }) {
   return (
-    <div className="flex px-5 py-2.5 text-sm text-blue-primary bg-white cursor-pointer hover:bg-blue-primary hover:bg-opacity-10">
+    <div className="flex px-5 py-2.5 text-blue-primary bg-white cursor-pointer hover:bg-blue-primary hover:bg-opacity-10">
       {children}
     </div>
   )
 }
 
 function MenuLabel({ children }) {
-  return <span className="ml-9">{children}</span>
+  return <span className="text-xs ml-9">{children}</span>
 }
 
 function MenuIcon({ children }) {

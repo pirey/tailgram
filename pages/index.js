@@ -1,4 +1,5 @@
 import Head from "next/head"
+import DialogList from "../components/DialogList"
 import MainMenu from "../components/MainMenu"
 import Search from "../components/Search"
 
@@ -14,11 +15,14 @@ export default function Home() {
       {/* page */}
       <div className="flex h-screen bg-gray-200">
         {/* main container */}
-        <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto bg-blue-200">
+        <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto">
           {/* left */}
-          <div className="flex-1 max-w-xs bg-red-200">
+          <div className="flex flex-col flex-1 max-w-xs overflow-hidden">
             <MainMenu />
             <Search />
+            <div className="flex-grow overflow-auto">
+              <DialogList />
+            </div>
           </div>
           {/* right */}
           <div className="flex-1 bg-purple-200"></div>

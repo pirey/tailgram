@@ -43,7 +43,7 @@ function Search() {
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-2 bg-transparent appearance-none focus:outline-none"
+          className="w-full pl-2 text-sm bg-transparent appearance-none focus:outline-none"
           placeholder="Search"
         />
         {search.trim().length > 0 ? (

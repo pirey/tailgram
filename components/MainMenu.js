@@ -92,7 +92,7 @@ function MenuToggle({ onClick }) {
       className="flex px-5 py-3 text-white bg-blue-500 cursor-pointer hover:bg-blue-600"
     >
       <span>{assets.burger}</span>
-      <span className="text-sm ml-9">Telegram</span>
+      <span className="ml-9">Telegram</span>
     </div>
   )
 }

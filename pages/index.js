@@ -1,4 +1,6 @@
 import Head from "next/head"
+import MainMenu from "../components/MainMenu"
+import Search from "../components/Search"
 
 export default function Home() {
   return (
@@ -10,11 +12,14 @@ export default function Home() {
       </Head>
 
       <div className="flex h-screen bg-gray-200">
-        <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto bg-blue-300">
+        <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto bg-blue-200">
           {/* left */}
-          <div className="flex-1 max-w-xs bg-red-400"></div>
+          <div className="flex-1 max-w-xs bg-red-200">
+            <MainMenu />
+            <Search />
+          </div>
           {/* right */}
-          <div className="flex-1 bg-purple-400"></div>
+          <div className="flex-1 bg-purple-200"></div>
         </div>
       </div>
     </div>

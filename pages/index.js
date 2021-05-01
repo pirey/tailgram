@@ -11,7 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* page */}
       <div className="flex h-screen bg-gray-200">
+        {/* main container */}
         <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto bg-blue-200">
           {/* left */}
           <div className="flex-1 max-w-xs bg-red-200">

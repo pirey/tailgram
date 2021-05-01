@@ -3,6 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        blue: {
+          primary: "#5682a3",
+          secondary: "#497799",
+        },
+      },
       scale: {
         "-1": "-1",
       },

@@ -89,7 +89,7 @@ function MenuToggle({ onClick }) {
   return (
     <div
       onClick={onClick}
-      className="flex px-5 py-3 text-white bg-blue-500 cursor-pointer hover:bg-blue-600"
+      className="flex px-5 py-3 text-white cursor-pointer bg-blue-primary hover:bg-blue-secondary"
     >
       <span>{assets.burger}</span>
       <span className="ml-9">Telegram</span>
@@ -111,7 +111,7 @@ function Menu({ children, open }) {
 
 function MenuItem({ children }) {
   return (
-    <div className="flex px-5 py-2.5 text-sm text-blue-400 bg-white cursor-pointer hover:bg-blue-100">
+    <div className="flex px-5 py-2.5 text-sm text-blue-primary bg-white cursor-pointer hover:bg-blue-primary hover:bg-opacity-10">
       {children}
     </div>
   )

@@ -4,15 +4,16 @@ import DialogType from "../models/DialogType"
 import DialogList from "../components/DialogList"
 import MainMenu from "../components/MainMenu"
 import Search from "../components/Search"
+import MainHeader from "../components/MainHeader"
 
 const dialogs = [
   {
     id: 1,
     isPinned: true,
     messageText: "You need to go out tonight",
-    unreadCount: 204,
+    unreadCount: 0,
     sender: "You",
-    title: "Bob The Marley",
+    title: "Paulo Coelho",
     type: DialogType.DIRECT,
   },
   {
@@ -59,15 +60,6 @@ const dialogs = [
     sender: "You",
     title: "Kimberly",
     type: DialogType.DIRECT,
-  },
-  {
-    id: 12,
-    isPinned: false,
-    messageText: "Everyone ready?",
-    unreadCount: 0,
-    sender: "John",
-    title: "Johny Squad",
-    type: DialogType.GROUP,
   },
   {
     id: 13,
@@ -134,14 +126,13 @@ export default function Home() {
       </Head>
 
       {/* page */}
-      <div className="flex h-screen bg-gray-200">
+      <div className="flex h-screen pb-4 bg-gray-200">
         {/* main container */}
-        <div className="flex flex-1 max-w-screen-lg pb-4 mx-auto">
+        <div className="flex flex-1 max-w-screen-lg mx-auto overflow-hidden rounded-b shadow">
           {/* left */}
           <div className="flex flex-col flex-1 max-w-xs overflow-hidden">
             <MainMenu />
             <Search />
-
             <DialogList>
               {dialogs.filter(isPinned).map((dialog) => (
                 <DialogItem key={dialog.id} {...dialog} />
@@ -152,7 +143,9 @@ export default function Home() {
             </DialogList>
           </div>
           {/* right */}
-          <div className="flex-1 bg-purple-200"></div>
+          <div className="flex flex-col flex-1 bg-white">
+            <MainHeader />
+          </div>
         </div>
       </div>
     </div>

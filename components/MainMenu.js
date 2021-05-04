@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react"
+import HeadButton from "./HeadButton"
 
 const assets = {
   burger: (
@@ -87,13 +88,10 @@ const assets = {
 
 function MenuToggle({ onClick }) {
   return (
-    <div
-      onClick={onClick}
-      className="flex px-5 py-3 text-white cursor-pointer bg-blue-primary hover:bg-blue-secondary"
-    >
+    <HeadButton onClick={onClick}>
       <span>{assets.burger}</span>
-      <span className="ml-9">Telegram</span>
-    </div>
+      <span className="text-sm font-semibold ml-9">Telegram</span>
+    </HeadButton>
   )
 }
 
